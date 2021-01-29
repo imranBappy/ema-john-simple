@@ -1,0 +1,22 @@
+
+.header-logo{
+    width:200px;
+    margin: 0 auto
+}
+.logo{
+    margin: 20px;
+    height:80px
+}
+
+.nav {
+    background-color: #000;
+    line-height: 41px;
+}
+.nav a {
+    text-decoration:none;
+    color: #fff;
+    padding: 10px 20px;
+}
+.nav a:hover {
+    background-color: green;
+}

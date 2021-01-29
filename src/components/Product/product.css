@@ -1,0 +1,15 @@
+.product{
+    border-bottom: 1px solid lightgray;
+    display:flex
+}
+.product-img{
+    margin: 50px 0px;
+    
+}
+.product-img img{
+    width:200px
+}
+.product-info{
+    margin-top: 50px;
+    margin-left: 40px;
+}

@@ -1,15 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Header from './components/Header/Header'
+import Shop from './components/Shop/Shop'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-      </header>
+    <div>
+      <Header />
+      <Shop />
     </div>
   );
 }
+
+//rsc arrow functional component 
 
 export default App;
