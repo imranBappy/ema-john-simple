@@ -1,6 +1,9 @@
 import React from 'react';
 import './header.css'
 import logo from '../../images/logo.png';
+import {
+    Link
+} from "react-router-dom";
 const Header = () => {
     return (
         <header className="header">
@@ -11,9 +14,9 @@ const Header = () => {
             </div>
             <nav className="nav">
                 <div className="container">
-                    <a href="/shop">Shop</a>
-                    <a href="/review">Order Review</a>
-                    <a href="manage">Manage Inventory</a>
+                    <Link to="/shop">Shop</Link>
+                    <Link to="/review">Order Review</Link>
+                    <Link to="manage">Manage Inventory</Link>
                 </div>
             </nav>
         </header>
