@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './header.css'
 import logo from '../../images/logo.png';
-import {
-    Link
-} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from '../Storage/UserStorage';
+import { handelLogoutAll } from '../Auth/authManager';
 const Header = () => {
+
+    const [user, setUser] = useContext(UserContext)
+    const handelLogout = () => handelLogoutAll().then(result => { setUser({ ...user, ...result }) })
+    const history = useHistory()
+    const handelPath = () => {
+        history.push('/auth')
+    }
     return (
         <header className="header">
             <div className="header-logo">
@@ -17,6 +24,7 @@ const Header = () => {
                     <Link to="/shop">Shop</Link>
                     <Link to="/review">Order Review</Link>
                     <Link to="manage">Manage Inventory</Link>
+                    <Link onClick={user.isLoggedIn ? handelLogout : handelPath}>{user.isLoggedIn ? 'Logout' : 'Login'}</Link>
                 </div>
             </nav>
         </header>
@@ -24,3 +32,4 @@ const Header = () => {
 };
 
 export default Header;
+

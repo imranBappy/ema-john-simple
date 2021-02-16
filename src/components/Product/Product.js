@@ -13,9 +13,9 @@ const Product = (props) => {
                 <img src={img} />
             </div>
             <div className="product-info">
-                <h3>
+                <h6 >
                     <Link to={`/product/${key}`}>{name}</Link>
-                </h3>
+                </h6>
                 <p>by: {seller}</p>
                 <p>Price: ${price}</p>
                 <p>Only {stock} left - order soon</p>
@@ -26,7 +26,6 @@ const Product = (props) => {
                         className='main-btn'
                     > <FontAwesomeIcon icon={faShoppingCart} />
                    add to cart</button>
-
                 }
 
             </div>

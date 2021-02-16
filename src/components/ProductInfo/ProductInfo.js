@@ -8,9 +8,9 @@ const ProductInfo = () => {
     let { product_Key } = useParams();
     const product = fakeData.find(pd => pd.key === product_Key)
     return (
-        <>
+        <div style={{ marginBottom: '130px' }} className="container">
             <Product showAddToCart={false} product={product} />
-        </>
+        </div>
     );
 };
 

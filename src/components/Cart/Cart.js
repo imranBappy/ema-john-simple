@@ -1,11 +1,15 @@
 import React from 'react';
 import './cart.css'
-import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const converter = n => Number(n.toFixed(2))
     let cart = props.cart
-    const total = converter(cart.reduce((total, prd) => total + prd.price, 0))
+    // const total = cart.reduce((total, prd) => converter(total) + converter(prd.price) * prd.quantity, 0)
+    let total = 0;
+    for (const prd of cart) {
+        total = converter(total) + converter(prd.price) * prd.quantity
+    }
+
     let shippingCost = 0;
     if (total > 35) {
         shippingCost = 0
@@ -21,13 +25,13 @@ const Cart = (props) => {
         <div className="cart">
             <h5>Oder Summary</h5>
             <p>Items Order {cart.length}</p>
-            <p>Price: ${total}</p>
+            <p>Price: ${converter(total)}</p>
             <p>Shipping Cost: ${converter(shippingCost)}</p>
             <p>Tax + VAT: ${converter(tax)}</p>
             <p>Total Price: ${converter(total + tax + shippingCost)}</p>
-            <button className="main-btn">
-                <Link to='/review'>Review Your Order</Link>
-            </button>
+            {
+                props.children
+            }
         </div>
     );
 };
